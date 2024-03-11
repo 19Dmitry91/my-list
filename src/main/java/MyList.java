@@ -26,6 +26,7 @@ public class MyList<T>  implements MyInterface<T> {
     }
 
     private T[] values;
+    private int size = 0;
 
     /**
      * Конструктор для создания пустого листа.
@@ -46,10 +47,13 @@ public class MyList<T>  implements MyInterface<T> {
     @Override
     public boolean add(T t) {
         try {
-            T[] tempArray = values;
-            values = (T[]) new Object[tempArray.length + 1];
-            System.arraycopy(tempArray, 0, values, 0, tempArray.length);
-            values[values.length - 1] = t;
+            if(size == values.length) {
+                T[] tempArray = values;
+                values = (T[]) new Object[tempArray.length + 1];
+                System.arraycopy(tempArray, 0, values, 0, tempArray.length);
+            }
+            values[size] = t;
+            System.out.println(size++);
             return true;
         } catch (ClassCastException e) {
             e.printStackTrace();
