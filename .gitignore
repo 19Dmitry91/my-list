@@ -4,6 +4,7 @@ out/
 !**/src/test/**/out/
 .mtj.tmp/
 .idea/
+target/
 *.jar
 *.war
 *.ear
